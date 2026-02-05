@@ -2,7 +2,7 @@ import numpy as np
 import pickle
 
 class SimpleRNN:
-    def __init__(self, vocab_size, hidden_size=64, output_size=None):
+    def __init__(self, vocab_size, hidden_size=256, output_size=None):
         self.vocab_size = vocab_size
         self.hidden_size = hidden_size
         self.output_size = output_size if output_size else vocab_size
