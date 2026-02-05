@@ -1,0 +1,36 @@
+name: Train Nexus AI
+
+on:
+  push:
+    paths:
+      - data.txt
+      - train.py
+      - model.py
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Train model
+      run: |
+        python train.py
+
+    - name: Commit weights
+      run: |
+        git config --global user.name "nexus-bot"
+        git config --global user.email "bot@nexus.ai"
+        git add weights.npy
+        git commit -m "Update trained weights"
+        git push
