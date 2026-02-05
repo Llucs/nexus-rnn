@@ -31,7 +31,7 @@ def train():
     
     # 5. Training Loop
     learning_rate = 0.001
-    epochs = 300
+    epochs = 2000
     
     print("Starting training...")
     for epoch in range(epochs):
