@@ -28,6 +28,6 @@ jobs:
       run: |
         git config --global user.name "nexus-bot"
         git config --global user.email "bot@nexus.ai"
-        git add weights.npy
+        git add weights.pkl
         git commit -m "Update trained weights"
         git push
